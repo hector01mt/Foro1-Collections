@@ -44,7 +44,7 @@ public class GestionEstudiantes {
     }
 
     private static void ingresarAlumno(Scanner scanner) {
-
+//se agrega la informacion dentro de sus respectivas colecciones
         System.out.print("\n Ingrese el carnet del alumno: ");
         String carnet = scanner.nextLine();
         System.out.print("\n Ingrese el nombre completo del alumno: ");
@@ -55,12 +55,13 @@ public class GestionEstudiantes {
     }
 
     private static void buscarAlumno(Scanner scanner) {
-       
+        /* Buscar el índice del carnet
+        para esto se todo el numero de carnet, y se compara uno por uno en la lista cuando lo encuentro remplaza el menos 1 de index verificando que si se encontro y llama al nombre con el mismo index*/
         System.out.print("\n Ingrese el carnet del alumno para buscar: ");
         String carnet = scanner.nextLine();
         int index = -1;
         int i = 0;
-        
+        //hace un loop por cada valor dentro de la coleccion hasta que termina
         for (String c : carnets) {
             if (c.equals(carnet)) {
                 index = i;
@@ -70,10 +71,10 @@ public class GestionEstudiantes {
         }
         
         if (index != -1) {
-        
+        //  el nombre si se encontró el índice
             System.out.println("\n Alumno encontrado: Carnet: " + carnet + ", Nombre: " + nombres.toArray()[index]);
         } else {
-        
+        //alerta de que no se encontro
             System.out.println("\n Alumno no encontrado, no se puede mostrar.");
         }
     }
@@ -82,7 +83,7 @@ public class GestionEstudiantes {
         System.out.print("\n Ingrese el carnet del alumno a eliminar: ");
         String carnet = scanner.nextLine();
         int index = -1;
-        
+        // Buscar el índice del carnet
         int i = 0;
         for (String id : carnets) {
             if (id.equals(carnet)) {
@@ -91,10 +92,10 @@ public class GestionEstudiantes {
             }
             i++;
         }
-        
+        // Elimina el carnet y el nombre si se encontró el índice
         if (index != -1) {
-            carnets.remove(index);
-            nombres.remove(index);
+            carnets.remove(carnet);
+            nombres.remove(nombres.toArray()[index]);
             System.out.println("\n Alumno eliminado exitosamente.");
         } else {
             System.out.println("\n Alumno no encontrado, no se puede eliminar.");
